@@ -1,0 +1,141 @@
+<form #myForm="ngForm" (submit)="submitAnswers(myForm.value)" novalidate>
+    <div class="row m-4" *ngFor="let question of exam">
+        <mdb-card>
+            <!--Card content-->
+            <mdb-card-body>
+
+                <!--Title-->
+                <mdb-card-title>
+                    <h4>{{question.questionNumber}}: {{question.question}}</h4>
+                </mdb-card-title>
+                <div *ngIf="question.questionType==='MCQ'">
+                    <mdb-card-header class="float-right">
+                        Select the correct answer
+                    </mdb-card-header>
+                    <br>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" [id]="question.optionA" value="A"
+                            [name]="question.questionNumber" ngModel mdbInput>
+                        <label class="custom-control-label" [for]="question.optionA">{{question.optionA}} </label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" [id]="question.optionB" value="B"
+                            [name]="question.questionNumber" ngModel mdbInput>
+                        <label class="custom-control-label" [for]="question.optionB">{{question.optionB}} </label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" [id]="question.optionC" value="C"
+                            [name]="question.questionNumber" ngModel mdbInput>
+                        <label class="custom-control-label" [for]="question.optionC">{{question.optionC}} </label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" class="custom-control-input" [id]="question.optionD" value="D"
+                            [name]="question.questionNumber" ngModel mdbInput>
+                        <label class="custom-control-label" [for]="question.optionD">{{question.optionD}} </label>
+                    </div>
+                </div>
+                <div *ngIf="question.questionType==='Checkboxes'">
+                    <mdb-card-header class="float-right">
+                        Select all that applies
+                    </mdb-card-header>
+                    <br>
+                    <div class="form-group form-check">
+                        <input type="checkbox" [id]="question.optionA" [name]="question.questionNumber+'A'"
+                            class="form-check-input" ngModel>
+                        <label [for]="question.optionA" class="form-check-label">{{question.optionA}}</label>
+                        <br>
+                        <input type="checkbox" [id]="question.optionB" [name]="question.questionNumber+'B'"
+                            class="form-check-input" ngModel>
+                        <label [for]="question.optionB" class="form-check-label">{{question.optionB}}</label>
+                        <br>
+                        <input type="checkbox" [id]="question.optionC" [name]="question.questionNumber+'C'"
+                            class="form-check-input" ngModel>
+                        <label [for]="question.optionC" class="form-check-label">{{question.optionC}}</label>
+                        <br>
+                        <input type="checkbox" [id]="question.optionD" [name]="question.questionNumber+'D'"
+                            class="form-check-input" ngModel>
+                        <label [for]="question.optionD" class="form-check-label">{{question.optionD}}</label>
+                    </div>
+                </div>
+
+                <div *ngIf="question.questionType==='Normal'">
+                    <mdb-card-header class="float-right">
+                        Type your answer
+                    </mdb-card-header>
+                    <br>
+                    <input type="text" [name]="question.questionNumber" ngModel>
+                </div>
+
+                <div class="container" *ngIf="question.questionType==='Matching'">
+                    <div class="row">
+                        <div class="col-5 offset-7">
+                            <mdb-card-header class="float-right">
+                                Enter in each text box the correct match
+                            </mdb-card-header>
+                        </div>
+
+                    </div>
+
+                    <br>
+                    <div class="row">
+                        <div class="col-1">
+                            <b>A</b>
+                        </div>
+                        <div class="col-4 text-center">
+                            {{question.optionA}}
+                        </div>
+                        <div class="col-2">
+                            <input type="text" oninput="this.value = this.value.toUpperCase()" size="1" maxlength="1" [name]="question.questionNumber+'A'" ngModel>
+                        </div>
+                        <div class="col-1">
+                            <b>D</b>
+                        </div>
+                        <div class="col-4 text-center">
+                            {{question.optionD}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1">
+                            <b>B</b>
+                        </div>
+                        <div class="col-4 text-center">
+                            {{question.optionB}}
+                        </div>
+                        <div class="col-2">
+                            <input type="text" oninput="this.value = this.value.toUpperCase()" size="1" maxlength="1" [name]="question.questionNumber+'B'" ngModel>
+                        </div>
+                        <div class="col-1">
+                            <b>E</b>
+                        </div>
+                        <div class="col-4 text-center">
+                            {{question.optionE}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-1">
+                            <b>C</b>
+                        </div>
+                        <div class="col-4 text-center">
+                            {{question.optionC}}
+                        </div>
+                        <div class="col-2">
+                            <input type="text" oninput="this.value = this.value.toUpperCase()" size="1" maxlength="1" [name]="question.questionNumber+'C'" ngModel>
+                        </div>
+                        <div class="col-1">
+                            <b>F</b>
+                        </div>
+                        <div class="col-4 text-center">
+                            {{question.optionF}}
+                        </div>
+                    </div>
+                </div>
+
+            </mdb-card-body>
+        </mdb-card>
+    </div>
+    <div class="row">
+        <div class="col-2 offset-10">
+            <button type="submit" mdbBtn color="primary" mdbWavesEffect>Submit</button>
+        </div>
+    </div>
+</form>

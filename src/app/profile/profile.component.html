@@ -1,0 +1,29 @@
+<mdb-card>
+    <!--Card image-->
+    <!--Card content-->
+    <mdb-card-body>
+
+        <!--Title-->
+        <mdb-card-title>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-10">
+                        <h2>{{user.firstname}} {{user.lastname}}</h2>
+                    </div>
+                    <div class="col-2">
+                        <a href="#" mdbBtn color="secondary" mdbWavesEffect>Edit</a>
+                    </div>
+                </div>
+            </div>
+        </mdb-card-title>
+
+        <!--Text-->
+        <mdb-card-text>
+            <h4>Username: {{user.username}}</h4>
+            <h4 *ngIf="user.degree">Degree: {{user.degree}}</h4>
+            <h4>Email: {{user.email}}</h4>
+
+        </mdb-card-text>
+
+    </mdb-card-body>
+</mdb-card>

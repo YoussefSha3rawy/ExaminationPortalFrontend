@@ -1,0 +1,51 @@
+<form #myForm="ngForm" (submit)="addExam(myForm.value)" novalidate>
+    <div class="row m-2">
+        <div class="col-3 offset-3">
+            <label for="course">Course</label>
+        </div>
+        <div class="col-3">
+            <select id="course" name="course" ngModel>
+                <option [value]="course.courseID" *ngFor="let course of courses">{{course.courseName}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-3 offset-3">
+            <label for="allottedTime">Allotted time in minutes:</label>
+        </div>
+        <div class="col-3">
+            <input name="allottedTime" type="number" id="allottedTime" ngModel>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-3 offset-3">
+            <label for="examDate">Exam date</label>
+        </div>
+        <div class="col-3">
+            <div class="form-group" id="examDate">
+                <div class="input-group">
+                    <input class="form-control" placeholder="yyyy-mm-dd" name="examDate" ngModel ngbDatepicker
+                        #d="ngbDatepicker">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                            <i class="far fa-calendar-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="col-3 offset-3">
+            <label for="time">Exam time</label>
+        </div>
+        <div class="col-3">
+            <ngb-timepicker name="time" id="time" ngModel></ngb-timepicker>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2 offset-10">
+            <button type="submit" mdbBtn color="indigo" mdbWavesEffect>Submit</button>
+        </div>
+    </div>
+</form>

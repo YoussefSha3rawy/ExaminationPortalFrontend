@@ -1,0 +1,21 @@
+<table mdbTable [striped]="true">
+    <thead>
+        <tr>
+            <th scope="col">Exam ID</th>
+            <th scope="col">Course</th>
+            <th scope="col">Date</th>
+            <th scope="col">Allotted Time</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let exam of exams">
+            <th scope="row">{{exam.examID}}</th>
+            <td>{{exam.course.courseName}}</td>
+            <td>{{convertToDate(exam.examDate).toUTCString()}}</td>
+            <td>{{exam.allottedTime}}</td>
+            <td *ngIf="type=='student'"><button type="button" mdbBtn color="info" mdbWavesEffect (click)="register(exam)">Register</button></td>
+            <td *ngIf="type=='admin'"><button type="button" mdbBtn color="info" mdbWavesEffect (click)="addQuestions(exam)">Add Questions</button></td>
+        </tr>
+    </tbody>
+</table>
