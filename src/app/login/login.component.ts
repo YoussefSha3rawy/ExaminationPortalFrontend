@@ -31,4 +31,12 @@ export class LoginComponent implements OnInit {
       }, error=>alert(error.error))
     })
   }
+
+  register(value:any){
+    console.log(value)
+    let obs = this.http.post("http://localhost:8080/students",value)
+    obs.subscribe(()=>{
+      alert("Registered successfully! Please log in")
+    }, error=>alert(error.error))
+  }
 }

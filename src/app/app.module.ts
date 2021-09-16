@@ -16,6 +16,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AddExamComponent } from './add-exam/add-exam.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
+import { CoursesComponent } from './courses/courses.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AddQuestionsComponent } from './add-questions/add-questions.component';
     StudentComponent,
     AdminComponent,
     AddExamComponent,
-    AddQuestionsComponent
+    AddQuestionsComponent,
+    CoursesComponent
   ],
   imports: [
     BrowserModule,

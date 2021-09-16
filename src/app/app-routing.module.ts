@@ -4,6 +4,7 @@ import { AddExamComponent } from './add-exam/add-exam.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { AdminComponent } from './admin/admin.component';
 import { AllExamsComponent } from './all-exams/all-exams.component';
+import { CoursesComponent } from './courses/courses.component';
 import { LoginComponent } from './login/login.component';
 import { MyexamsComponent } from './myexams/myexams.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -26,7 +27,8 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'allExams', component: AllExamsComponent },
       { path: 'addExam', component: AddExamComponent },
-      { path:'addQuestions/:id', component: AddQuestionsComponent }
+      { path:'addQuestions/:id', component: AddQuestionsComponent },
+      { path: 'courses', component: CoursesComponent }
     ]
   }
 ];
